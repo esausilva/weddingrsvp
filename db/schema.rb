@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160109203329) do
+ActiveRecord::Schema.define(version: 20160109230256) do
 
   create_table "rsvps", force: :cascade do |t|
     t.string   "party"
     t.integer  "attendees"
     t.text     "comment"
     t.boolean  "accept",     default: false
-    t.boolean  "decline",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
