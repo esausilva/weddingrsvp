@@ -5,6 +5,36 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <!-- Google Fonts embed code -->
+  <script type="text/javascript">
+    (function() {
+      var link_element = document.createElement("link"),
+          s = document.getElementsByTagName("script")[0];
+      if (window.location.protocol !== "http:" && window.location.protocol !== "https:") {
+        link_element.href = "http:";
+      }
+      link_element.href += "//fonts.googleapis.com/css?family=Stalemate:400";
+      link_element.rel = "stylesheet";
+      link_element.type = "text/css";
+      s.parentNode.insertBefore(link_element, s);
+    })();
+  </script>
+  <script type="text/javascript">
+    (function() {
+      var link_element = document.createElement("link"),
+          s = document.getElementsByTagName("script")[0];
+      if (window.location.protocol !== "http:" && window.location.protocol !== "https:") {
+        link_element.href = "http:";
+      }
+      link_element.href += "//fonts.googleapis.com/css?family=Playball:400";
+      link_element.rel = "stylesheet";
+      link_element.type = "text/css";
+      s.parentNode.insertBefore(link_element, s);
+    })();
+  </script>
+  <!-- End Google Fonts embed code -->
+
 </head>
 <body>
 

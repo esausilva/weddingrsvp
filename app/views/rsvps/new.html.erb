@@ -1,14 +1,15 @@
-<p class="text-center">Kindly respond by May 16<sup>th</sup>, 2016</p>
+<div class="center-box">
+<!--<p class="text-center">Kindly respond by May 16<sup>th</sup>, 2016</p>-->
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<!--<div class="row">
+  <div class="col-md-6 col-md-offset-3 bg">-->
     <%= render 'shared/errors', obj: @rsvp %>
 
     <%= form_for(@rsvp, :html => { class: 'form-horizontal', role: 'form' }) do |r| %>
 
       <div class="form-group">
         <div class="control-label pull-left">
-          <%= r.label :party %> <span class="required">*</span>
+          <%= r.label :party, 'Name' %> <span class="required">*</span>
         </div>
         <div class="control-label">
           <%= r.text_field :party, class: 'form-control', placeholder: 'Individual or family name', autofocus: true %>
@@ -17,10 +18,10 @@
 
       <div class="form-group">
         <div class="control-label pull-left">
-          <%= r.label :attendees %> <span class="required">*</span>
+          <%= r.label :attendees, 'Number of attendees' %> <span class="required">*</span>
         </div>
         <div class="control-label">
-          <%= r.number_field :attendees, class: 'form-control', placeholder: 'Number of attendees' %>
+          <%= r.number_field :attendees, class: 'form-control' %>
         </div>
       </div>
 
@@ -50,5 +51,6 @@
     <% end %>
 
     <p class="required"><small>* Required fields</small></p>
-  </div>
+<!--  </div>
+</div>-->
 </div>
