@@ -2,6 +2,8 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <%= render 'shared/errors', obj: @rsvp %>
+
     <%= form_for(@rsvp, :html => { class: 'form-horizontal', role: 'form' }) do |r| %>
 
       <div class="form-group">
