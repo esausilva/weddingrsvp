@@ -1,6 +1,10 @@
 class RsvpsController < ApplicationController
   before_action :set_rsvp, only: [:show, :destroy]
 
+  def index
+    @rsvps = Rsvp.all
+  end
+
   def new
     @rsvp = Rsvp.new
   end

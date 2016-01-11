@@ -4,7 +4,7 @@
 body {
   background: none;
 }
-/**/
+
 html {
   background: asset-url('body-bg.jpeg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -30,8 +30,13 @@ html {
   border-radius: 8px;
   border: 2px solid #cccccc;
   font-family: "Playball", Verdana, Arial, Helvetica;
-
   font-size: 18px;
+}
+
+.guest-list {
+  max-width: 900px;
+  font-family: Verdana, Arial, Helvetica;
+  font-size: 14px;
 }
 
 h1 {
