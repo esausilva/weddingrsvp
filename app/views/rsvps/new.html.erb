@@ -19,7 +19,7 @@
         <%= r.label :attendees, 'Number of attendees' %> <span class="required">*</span>
       </div>
       <div class="control-label">
-        <%= r.number_field :attendees, class: 'form-control' %>
+        <%= r.number_field :attendees, class: 'form-control', placeholder: 'Enter 0 if not attending' %>
       </div>
     </div>
 
@@ -37,6 +37,15 @@
       </div>
       <div class="control-label">
         <%= r.text_area :comment, rows: 10, class: 'form-control', placeholder: 'Leave us a comment' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="control-label pull-left">
+        <label for="rsvp_code">Enter code found in invitation</label> <span class="required">*</span>
+      </div>
+      <div class="control-label">
+        <%= text_field_tag 'rsvp_code', nil, class: 'form-control' %>
       </div>
     </div>
 

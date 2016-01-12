@@ -12,10 +12,16 @@ class RsvpsController < ApplicationController
   def create
     @rsvp = Rsvp.new(rsvp_params)
 
-    if @rsvp.save
+    validCode = params['rsvp_code'] == '1234' ? true : false
+
+    if validCode and @rsvp.save
       flash[:success] = 'Thank you'
       redirect_to root_path
     else
+      if !validCode
+        @rsvp.errors.add(:rsvp, 'Your invitation code does''t match')
+      end
+
       render 'new'
     end
   end
