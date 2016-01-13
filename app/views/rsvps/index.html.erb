@@ -1,5 +1,6 @@
 <div class="center-box guest-list">
   <h2 class="text-center">Guest List</h2>
+  <p><strong>Total number of attendees</strong>: <%= @attendees_sum %></p>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -15,10 +16,13 @@
         <th>
           Comment
         </th>
+        <th>
+          Date
+        </th>
       </tr>
     </thead>
     <tbody>
-      <% @rsvps.each do |r| %>
+      <% @rsvps_paginate.each do |r| %>
         <tr>
           <td>
             <%= r.party %>
@@ -30,10 +34,20 @@
             <%= human_boolean(r.accept) %>
           </td>
           <td>
-            <%= r.comment %>
+            <%= simple_format(r.comment) %>
+          </td>
+          <td>
+            <%= r.created_at.to_date.to_formatted_s(:long_ordinal) %>
           </td>
         </tr>
       <% end %>
     </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="5">
+          <%= will_paginate @rsvps_paginate %>
+        </td>
+      </tr>
+    </tfoot>
   </table>
 </div>

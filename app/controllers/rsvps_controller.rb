@@ -1,8 +1,10 @@
 class RsvpsController < ApplicationController
-  before_action :set_rsvp, only: [:show, :destroy]
+  before_action :set_rsvp, only: [:destroy]
 
   def index
     @rsvps = Rsvp.all
+    @rsvps_paginate = @rsvps.paginate(page: params[:page], per_page: 15)
+    @attendees_sum = @rsvps.where(accept: true).sum(:attendees)
   end
 
   def new

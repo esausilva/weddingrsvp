@@ -8,6 +8,8 @@ class Rsvp < ActiveRecord::Base
   validates :rsvp_code, presence: true
   validate :valid_code
 
+  default_scope -> { order(party: :asc) }
+
   private
 
   def valid_code
