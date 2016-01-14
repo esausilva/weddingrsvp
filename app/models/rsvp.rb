@@ -14,7 +14,7 @@ class Rsvp < ActiveRecord::Base
 
   def valid_code
     if rsvp_code != '1234'
-      errors.add(:rsvp_code, 'Your invitation code does not match')
+      errors.add(:rsvp_code, 'does not match invitation code')
     end
   end
 end
