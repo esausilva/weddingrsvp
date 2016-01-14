@@ -37,11 +37,15 @@
 
 </head>
 <body>
+  <% if user_signed_in? %>
+    <%= render 'shared/menu' %>
+  <% end %>
 
   <div class='container'>
     <h1 class="text-center">Andrea & Esau's Wedding</h1>
     <hr />
     <div class="main-body">
+      <p class="notice"><%= notice %></p>
       <%= render 'shared/messages' %>
       <%= yield %>
     </div>
