@@ -3,10 +3,10 @@
     <div clas='col-xs-8 col-xs-offset-2'>
       <div class='panel panel-danger normal-font'>
         <div class='panel-heading'>
-          <h2 class='panel-title'>
+          <strong><span class='panel-title'>
             <%= pluralize(obj.errors.count, 'error') %>
             prohibited this RSVP from being submitted:
-          </h2>
+          </span></strong>
           <div class='panel-body'>
             <ul>
               <% obj.errors.full_messages.each do |err| %>

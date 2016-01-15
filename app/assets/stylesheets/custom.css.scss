@@ -1,8 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$font-normal: Verdana, Arial, Helvetica;
+
 body {
   background: none;
+  font-family: $font-normal;
 }
 
 html {
@@ -35,7 +38,7 @@ html {
 
 .guest-list {
   max-width: 900px;
-  font-family: Verdana, Arial, Helvetica;
+  font-family: $font-normal;
   font-size: 14px;
 }
 
@@ -49,6 +52,40 @@ h1 {
 input,
 textarea,
 .normal-font {
-  font-family: Verdana, Arial, Helvetica;
+  font-family: $font-normal;
   font-size: 15px;
+}
+
+.alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
+
+.alert-alert,
+#error_explanation {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+  text-align: left;
+  font-family: $font-normal;
+}
+
+.alert-success,
+.alert-notice {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+}
+
+#error_explanation {
+  padding: 15px 15px 15px 30px;
+  margin-bottom: 30px;
+
+  h2 {
+    font-size: 18px;
+    font-weight: bold;
+  }
 }
