@@ -1,5 +1,5 @@
 class RsvpsController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :create]
+  before_action :authenticate_user!, except: [:new, :create, :thankyou]
   before_action :set_rsvp, only: [:destroy]
 
   def index
@@ -16,11 +16,14 @@ class RsvpsController < ApplicationController
     @rsvp = Rsvp.new(rsvp_params)
 
     if verify_recaptcha(model: @rsvp) && @rsvp.save
-      flash[:success] = 'Thank you'
-      redirect_to root_path
+      flash[:success] = 'Thank you for taking the time to fill this RSVP!'
+      redirect_to thankyou_rsvps_path
     else
       render 'new'
     end
+  end
+
+  def thankyou
   end
 
   private

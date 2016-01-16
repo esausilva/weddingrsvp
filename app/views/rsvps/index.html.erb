@@ -17,6 +17,9 @@
           Comment
         </th>
         <th>
+          Email
+        </th>
+        <th>
           Date
         </th>
       </tr>
@@ -35,6 +38,9 @@
           </td>
           <td>
             <%= simple_format(r.comment) %>
+          </td>
+          <td>
+            <%= r.email %>
           </td>
           <td>
             <%= r.created_at.to_date.to_formatted_s(:long_ordinal) %>
