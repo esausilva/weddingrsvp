@@ -26,7 +26,7 @@ class RsvpsController < ApplicationController
   private
 
   def rsvp_params
-    params.require(:rsvp).permit(:party, :attendees, :comment, :accept, :rsvp_code)
+    params.require(:rsvp).permit(:party, :attendees, :email, :comment, :accept, :rsvp_code)
   end
 
   def set_rsvp

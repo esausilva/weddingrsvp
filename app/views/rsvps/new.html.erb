@@ -33,6 +33,16 @@
 
     <div class="form-group">
       <div class="control-label pull-left">
+        <%= r.label :email %>
+      </div>
+      <div class="control-label">
+        <%= r.text_field :email, class: 'form-control' %>
+        <small class="pull-left">We will only email you once a few days before the wedding</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="control-label pull-left">
         <%= r.label :comment %>
       </div>
       <div class="control-label">
