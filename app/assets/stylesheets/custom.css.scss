@@ -89,3 +89,11 @@ textarea,
     font-weight: bold;
   }
 }
+
+.alert-recaptcha_error {
+  display: none;
+}
+
+.g-recaptcha {
+  display: inline-block;
+}

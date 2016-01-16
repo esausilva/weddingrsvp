@@ -15,7 +15,7 @@ class RsvpsController < ApplicationController
   def create
     @rsvp = Rsvp.new(rsvp_params)
 
-    if @rsvp.save
+    if verify_recaptcha(model: @rsvp) && @rsvp.save
       flash[:success] = 'Thank you'
       redirect_to root_path
     else
