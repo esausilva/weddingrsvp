@@ -6,6 +6,11 @@ class RsvpsController < ApplicationController
     @rsvps = Rsvp.all
     @rsvps_paginate = @rsvps.paginate(page: params[:page], per_page: 15)
     @attendees_sum = @rsvps.where(accept: true).sum(:attendees)
+
+    respond_to do |format|
+      format.html
+      format.csv { render text: @rsvps.to_csv }
+    end
   end
 
   def new

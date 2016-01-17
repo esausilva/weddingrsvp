@@ -43,7 +43,7 @@
             <%= r.email %>
           </td>
           <td>
-            <%= r.created_at.to_date.to_formatted_s(:long_ordinal) %>
+            <%= r.created_at.strftime("%b %d %Y") %>
           </td>
         </tr>
       <% end %>
@@ -52,6 +52,9 @@
       <tr>
         <td colspan="5">
           <%= will_paginate @rsvps_paginate %>
+        </td>
+        <td>
+          <%= link_to 'Download Guest List', rsvps_path(format: 'csv'), class: 'btn btn-default btn-guest-list' %>
         </td>
       </tr>
     </tfoot>
