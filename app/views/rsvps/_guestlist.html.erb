@@ -1,0 +1,48 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Number of Attendees
+    </th>
+    <th>
+      Accept
+    </th>
+    <th>
+      Comment
+    </th>
+    <th>
+      Email
+    </th>
+    <th>
+      Date
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <% obj.each do |r| %>
+    <tr>
+      <td>
+        <%= r.party %>
+      </td>
+      <td>
+        <%= r.attendees %>
+      </td>
+      <td>
+        <%= human_boolean(r.accept) %>
+      </td>
+      <td>
+        <%= simple_format(r.comment) %>
+      </td>
+      <td>
+        <%= r.email %>
+      </td>
+      <td>
+        <%= r.created_at.strftime("%b %d %Y") %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

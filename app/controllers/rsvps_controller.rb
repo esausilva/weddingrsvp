@@ -1,5 +1,5 @@
 class RsvpsController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :create, :thankyou]
+  before_action :authenticate_user!, except: [:new, :create, :thankyou, :search]
   before_action :set_rsvp, only: [:destroy]
 
   def index
@@ -29,6 +29,15 @@ class RsvpsController < ApplicationController
   end
 
   def thankyou
+  end
+
+  def search
+    if params[:search].present?
+      @rsvps = Rsvp.search params[:search], fields: [:party], page: params[:page], per_page: 15
+      @rsvps_count = @rsvps.total_count
+    else
+      @rsvps = Rsvp.paginate(page: params[:page], per_page: 15)
+    end
   end
 
   private

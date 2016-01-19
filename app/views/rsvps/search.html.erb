@@ -1,0 +1,16 @@
+<div class="center-box guest-list">
+  <h2 class="text-center">Search Results</h2>
+  <p><%= @rsvps_count %> search result(s)</p>
+
+  <%= render 'guestlist', obj: @rsvps %>
+
+  <div class="row">
+    <div class="col-md-9">
+      <%= will_paginate %>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+  </div>
+
+</div>

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :rsvps, only: [:index, :new, :create, :destroy] do
     collection do
       get 'thankyou'
+      get 'search'
     end
   end
   devise_for :users,

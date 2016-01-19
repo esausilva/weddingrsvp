@@ -1,6 +1,8 @@
 class Rsvp < ActiveRecord::Base
   attr_accessor :rsvp_code
 
+  searchkick
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :party, presence: true, length: { minimum: 5 }

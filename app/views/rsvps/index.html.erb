@@ -1,62 +1,16 @@
 <div class="center-box guest-list">
   <h2 class="text-center">Guest List</h2>
   <p><strong>Total number of attendees</strong>: <%= @attendees_sum %></p>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>
-          Name
-        </th>
-        <th>
-          Number of Attendees
-        </th>
-        <th>
-          Accept
-        </th>
-        <th>
-          Comment
-        </th>
-        <th>
-          Email
-        </th>
-        <th>
-          Date
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @rsvps_paginate.each do |r| %>
-        <tr>
-          <td>
-            <%= r.party %>
-          </td>
-          <td>
-            <%= r.attendees %>
-          </td>
-          <td>
-            <%= human_boolean(r.accept) %>
-          </td>
-          <td>
-            <%= simple_format(r.comment) %>
-          </td>
-          <td>
-            <%= r.email %>
-          </td>
-          <td>
-            <%= r.created_at.strftime("%b %d %Y") %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td colspan="5">
-          <%= will_paginate @rsvps_paginate %>
-        </td>
-        <td>
-          <%= link_to 'Download Guest List', rsvps_path(format: 'csv'), class: 'btn btn-default btn-guest-list' %>
-        </td>
-      </tr>
-    </tfoot>
-  </table>
+
+  <%= render 'guestlist', obj: @rsvps_paginate %>
+
+  <div class="row">
+    <div class="col-md-9">
+      <%= will_paginate @rsvps_paginate %>
+    </div>
+    <div class="col-md-3">
+      <%= link_to 'Download Guest List', rsvps_path(format: 'csv'), class: 'btn btn-default btn-guest-list' %>
+    </div>
+  </div>
+
 </div>
