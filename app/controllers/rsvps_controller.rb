@@ -1,6 +1,6 @@
 class RsvpsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create, :thankyou, :search]
-  before_action :set_rsvp, only: [:destroy]
+  #before_action :set_rsvp, only: [:destroy]
 
   def index
     @rsvps = Rsvp.all
@@ -28,6 +28,12 @@ class RsvpsController < ApplicationController
     end
   end
 
+  def destroy
+    Rsvp.find(params[:id]).destroy
+    flash[:success] = 'RSVP was successfully deleted.'
+    redirect_to rsvps_path
+  end
+
   def thankyou
   end
 
@@ -46,7 +52,7 @@ class RsvpsController < ApplicationController
     params.require(:rsvp).permit(:party, :attendees, :email, :comment, :accept, :rsvp_code)
   end
 
-  def set_rsvp
-    @rsvp = Rsvp.find(params[:id])
-  end
+  #def set_rsvp
+  #  @rsvp = Rsvp.find(params[:id])
+  #end
 end

@@ -46,6 +46,5 @@ If you get an error saying you need to re index Rsvp (+Rsvp.reindex+) run the fo
 
 ==== Pending
 
-* Implement delete guest list entry
 * Implement {dotenv}[https://github.com/bkeepers/dotenv] for reCAPTCHA keys before production deployment and RSVP Code
 

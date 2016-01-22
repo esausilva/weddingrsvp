@@ -19,6 +19,9 @@
     <th>
       Date
     </th>
+    <th>
+      Action
+    </th>
   </tr>
   </thead>
   <tbody>
@@ -41,6 +44,10 @@
       </td>
       <td>
         <%= r.created_at.strftime("%b %d %Y") %>
+      </td>
+      <td>
+        <%= link_to 'Delete', r, method: :delete, class: 'btn btn-danger btn-xs',
+                    data: { confirm: 'Are you sure you want to delete this RSVP?' } %>
       </td>
     </tr>
   <% end %>
