@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.2.4'
+gem 'dotenv-rails'#, groups: [:development, :test]
 gem 'rails', '4.2.5'
 gem 'will_paginate', '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'

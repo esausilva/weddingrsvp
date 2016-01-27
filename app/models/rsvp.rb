@@ -27,7 +27,7 @@ class Rsvp < ActiveRecord::Base
   private
 
   def valid_code
-    if rsvp_code != '1234'  #TODO: Change to environment variable
+    if rsvp_code != ENV['RSVP_CODE']
       errors.add(:rsvp_code, 'does not match invitation code')
     end
   end
