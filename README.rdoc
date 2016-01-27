@@ -44,7 +44,8 @@ If you get an error saying you need to re index Rsvp (+Rsvp.reindex+) run the fo
 
 <tt>$ rake db:migrate</tt>
 
-==== Pending
+I'm using {dotenv}[https://github.com/bkeepers/dotenv] for reCAPTCHA keys and RSVP Code. Refer to it documentation
+for more info
 
-* Implement {dotenv}[https://github.com/bkeepers/dotenv] for reCAPTCHA keys before production deployment and RSVP Code
+==== Pending
 
