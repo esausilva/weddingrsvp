@@ -47,5 +47,11 @@ If you get an error saying you need to re index Rsvp (+Rsvp.reindex+) run the fo
 I'm using {dotenv}[https://github.com/bkeepers/dotenv] for reCAPTCHA keys and RSVP Code. Refer to it documentation
 for more info
 
+==== Important
+
+After cloning make sure you set up dotEnv gem before running the application and get demo
+{keys}[https://github.com/ambethia/recaptcha/blob/master/demo/rails/.env] for reCAPTCHA. If not the application will
+throw an error.
+
 ==== Pending
 
