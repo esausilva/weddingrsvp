@@ -53,5 +53,7 @@ After cloning make sure you set up dotEnv gem before running the application and
 {keys}[https://github.com/ambethia/recaptcha/blob/master/demo/rails/.env] for reCAPTCHA. If not the application will
 throw an error.
 
+I disabled reCAPTCHA, if you want it just uncomment reCAPTCHA code in <b>rsvps_controller.rb</b> and <b>new.html.erb</b>
+
 ==== Pending
 
