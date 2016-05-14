@@ -1,9 +1,10 @@
 class RsvpsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create, :thankyou, :search]
   #before_action :set_rsvp, only: [:destroy]
+  helper_method :sort_column, :sort_direction
 
   def index
-    @rsvps = Rsvp.all
+    @rsvps = Rsvp.order(sort_column + ' ' + sort_direction)
     @rsvps_paginate = @rsvps.paginate(page: params[:page], per_page: 15)
     @attendees_sum = @rsvps.where(accept: true).sum(:attendees)
 
@@ -41,6 +42,7 @@ class RsvpsController < ApplicationController
   def search
     if params[:search].present?
       @rsvps = Rsvp.search params[:search], fields: [:party], page: params[:page], per_page: 15
+
       @rsvps_count = @rsvps.total_count
     else
       @rsvps = Rsvp.paginate(page: params[:page], per_page: 15)
@@ -51,6 +53,14 @@ class RsvpsController < ApplicationController
 
   def rsvp_params
     params.require(:rsvp).permit(:party, :attendees, :email, :comment, :accept, :rsvp_code)
+  end
+
+  def sort_column
+    Rsvp.column_names.include?(params[:sort]) ? params[:sort] : 'party'
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
   end
 
   #def set_rsvp

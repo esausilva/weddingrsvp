@@ -12,48 +12,63 @@ This application tracks RSVPS for a wedding. The RSPV form consists of 6 fields
 Out of these 6 fields, only <b>Name</b>, <b>Number of Attendees</b>, <b>Accept/Decline</b> and <b>Invitation Code</b>
 are required.
 
-The application also has a reCAPTCHA button to fight against bots.
-
 Once the user submits the form, the application validates the fields and if everything is correct, then displays a little
 blurb about the couple.
 
-On the back end side, the administrator can see the guest list, search for a particular name in the guest list and
-delete an entry in the guest list.
+On the back end side, the administrator can see the guest list, search for a particular name in the guest list,
+delete an entry in the guest list and download the entire guest list as a CSV file.
 
 In order gain access to the back end, just append *_/signup_* at the end of the URL to create an account and to
 login just append *_/login_* at the end of the URL. After the administrator has logged in successfully, a top menu will
 appear where one can navigate to the <b>Guest List</b>, back to the *RSVP* page, *Search* the guest list, *Edit*
 their profile, and <b>Log out</b> from the application.
 
-=== Notes
+=== Features
 
-The <i>invitation code</i> is a static code provided in the invitation cards to prevent random people from
-submitting the form since the RSVP form is open to the web :)
+==== Search
 
 To handle search, I am using *searchkick* gem and in order to perform a search in *localhost* you must have
 *elasticsearch* installed have its server running.
+
+In console type:
 
 <tt>$ elasticsearch</tt>
 
 Refer to {searchkick}[https://github.com/ankane/searchkick] documentation for more information. Also read
 {production deployment}[https://github.com/ankane/searchkick#deployment] documentation.
 
-If you get an error saying you need to re index Rsvp (+Rsvp.reindex+) run the following:
+If you get an error saying you need to re index Rsvp (+Rsvp.reindex+), in console run the following:
 
 <tt>$ rake searchkick:reindex CLASS=Rsvp</tt>
 
 <tt>$ rake db:migrate</tt>
 
-I'm using {dotenv}[https://github.com/bkeepers/dotenv] for reCAPTCHA keys and RSVP Code. Refer to it documentation
-for more info
+==== Sortable Columns
+
+When looking at the guest list, you can sort by _Name_, <em>Number of Attendees</em>, _Accept_ and _Date_ columns.
+
+==== reCAPTCHA
+
+The application has a reCAPTCHA button to fight against bots.
+
+Initially is disabled, if you want it just uncomment reCAPTCHA code in <b>rsvps_controller.rb</b> and <b>new.html.erb</b>
+
+=== Notes
+
+The <i>invitation code</i> is a static code provided in the invitation cards to prevent random people from
+submitting the form since the RSVP form is open to the web :)
+
+I'm using {dotenv}[https://github.com/bkeepers/dotenv] for reCAPTCHA keys and RSVP Code. Refer to its documentation
+for more info about installing and deployment.
+
+Guest list will not sort after a search.
 
 ==== Important
 
-After cloning make sure you set up dotEnv gem before running the application and get demo
-{keys}[https://github.com/ambethia/recaptcha/blob/master/demo/rails/.env] for reCAPTCHA. If not the application will
-throw an error.
-
-I disabled reCAPTCHA, if you want it just uncomment reCAPTCHA code in <b>rsvps_controller.rb</b> and <b>new.html.erb</b>
+After cloning make sure you set up dotenv gem before running the application and get demo
+{keys}[https://github.com/ambethia/recaptcha/blob/master/demo/rails/.env] for reCAPTCHA (if you enable it).
+If not the application will throw an error when submitting an RSVP.
 
 ==== Pending
 
+Implement sorting after search action.

@@ -2,13 +2,13 @@
   <thead>
   <tr>
     <th>
-      Name
+      <%= sortable 'party', 'Name' %>
     </th>
     <th>
-      Number of Attendees
+      <%= sortable 'attendees', 'Number of Attendees' %>
     </th>
     <th>
-      Accept
+      <%= sortable 'accept', 'Accept' %>
     </th>
     <th>
       Comment
@@ -17,7 +17,7 @@
       Email
     </th>
     <th>
-      Date
+      <%= sortable 'created_at', 'Date' %>
     </th>
     <th>
       Action

@@ -13,7 +13,7 @@ class Rsvp < ActiveRecord::Base
   validates :rsvp_code, presence: true
   validate :valid_code
 
-  default_scope -> { order('lower(party) asc') }
+  #default_scope -> { order('lower(party) asc') }
 
   def self.to_csv
     CSV.generate do |csv|
